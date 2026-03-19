@@ -1,49 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Tarefas</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
-</head>
-<body>
-    <div class="container">
-        <h1>Gerenciador de tarefas</h1>
+{% extends "base.html" %}
 
-        <form method="post" action="/criar">
-            <input type="text" name="titulo" placeholder="Título" required>
-            <input type="text" name="descricao" placeholder="Descrição">
+{% block title %}Tarefas{% endblock %}
 
-            <select name="prioridade">
-                <option value="1">Alta</option>
-                <option value="2">Media</option>
-                <option value="3">Baixa</option>
-            </select>
+{% block content %}
 
-            <button type="submit">Criar</button>
-        </form>
+<h1>Minhas Tarefas</h1>
 
-        <hr>
+<a href="{{ url_for('main.logout') }}" class="logout">Sair</a>
 
-        <h2>Lista de Tarefas</h2>
-        <ul>
-            {% for tarefa in tarefas %}
+<form method="POST" action="/criar" class="form">
+    <input name="titulo" placeholder="Título" required>
+    <input name="descricao" placeholder="Descrição">
+    <input name="prioridade" type="number" placeholder="Prioridade" required>
+    <button type="submit">Adicionar</button>
+</form>
 
-            <li class="{% if tarefa.status == 'concluida' %}done{% endif %}">
-    
-                <div>
-                    <strong>{{ tarefa.titulo }}</strong><br>
-                    <small>{{ tarefa.descricao }}</small>
-                </div>
+<ul>
+    {% for tarefa in tarefas %}
+    <li class="{% if tarefa.status == 'concluida' %}done{% endif %}">
 
-                <div class="actions">
-                    <a href="/concluir/{{ tarefa.id }}" class="btn concluir">✔</a>
-                    <a href="/deletar/{{ tarefa.id }}" class="btn deletar">✖</a>
-                </div>
+        <div class="task-info">
+            <strong>{{ tarefa.titulo }}</strong>
+            <small>{{ tarefa.descricao }}</small>
+        </div>
 
-            </li>
+        <div class="actions">
+            {% if tarefa.status != "concluida" %}
+                <a href="/concluir/{{ tarefa.id }}" class="btn concluir">✔</a>
+            {% endif %}
+            <a href="/deletar/{{ tarefa.id }}" class="btn deletar">✖</a>
+        </div>
 
+    </li>
+    {% endfor %}
+</ul>
 
-            {% endfor %}
-        </ul>
-    </div>
-</body>
-</html>
+{% endblock %}

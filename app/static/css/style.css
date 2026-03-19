@@ -1,42 +1,46 @@
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
     background-color: #0f172a;
-    color: #e2e8f0;
-    display: flex;
-    justify-content: center;
-    padding: 40px;
+    color: white;
+    padding: 10px;
 }
 
+/* Container */
 .container {
-    width: 500px;
-    background-color: #1e293b;
-    padding: 20px;
-    border-radius: 10px;
+    max-width: 600px;
+    margin: auto;
 }
 
-h1 {
+/* Títulos */
+h1, h2 {
     text-align: center;
-    margin-bottom: 20px;
 }
 
-form {
+/* Form */
+.form {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
-input, select, button {
-    padding: 10px;
+input {
+    padding: 12px;
     border-radius: 6px;
     border: none;
-}
-
-input, select {
-    background-color: #334155;
+    background-color: #1e293b;
     color: white;
 }
 
+input:focus {
+    outline: 2px solid #3b82f6;
+}
+
 button {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
     background-color: #3b82f6;
     color: white;
     cursor: pointer;
@@ -46,19 +50,30 @@ button:hover {
     background-color: #2563eb;
 }
 
+/* Lista */
 ul {
     list-style: none;
     padding: 0;
-    margin-top: 20px;
 }
 
 li {
-    background-color: #334155;
-    padding: 10px;
-    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e293b;
+    padding: 12px;
+    border-radius: 8px;
     margin-bottom: 10px;
+    flex-wrap: wrap;
 }
 
+/* Info da tarefa */
+.task-info {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Botões */
 .actions {
     display: flex;
     gap: 10px;
@@ -66,18 +81,16 @@ li {
 
 .btn {
     text-decoration: none;
-    padding: 6px 10px;
-    border-radius: 5px;
+    padding: 8px 12px;
+    border-radius: 6px;
     font-weight: bold;
+    font-size: 14px;
 }
 
+/* Botões específicos */
 .concluir {
     background-color: #22c55e;
     color: white;
-}
-
-.concluir:hover {
-    background-color: #16a34a;
 }
 
 .deletar {
@@ -85,10 +98,7 @@ li {
     color: white;
 }
 
-.deletar:hover {
-    background-color: #dc2626;
-}
-
+/* Tarefa concluída */
 .done {
     opacity: 0.6;
 }
@@ -97,48 +107,16 @@ li {
     text-decoration: line-through;
 }
 
-.auth-container {
-    width: 100%;
-    max-width: 400px;
-    margin: auto;
-    margin-top: 100px;
-    background-color: #1e293b;
-    padding: 30px;
-    border-radius: 10px;
+/* Logout */
+.logout {
+    display: block;
+    text-align: right;
+    margin-bottom: 10px;
+    color: #f87171;
+    text-decoration: none;
 }
 
-.auth-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.auth-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.auth-container input {
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-    background-color: #334155;
-    color: white;
-}
-
-.auth-container button {
-    padding: 10px;
-    background-color: #3b82f6;
-    border: none;
-    border-radius: 6px;
-    color: white;
-    cursor: pointer;
-}
-
-.auth-container button:hover {
-    background-color: #2563eb;
-}
-
+/* Links auth */
 .auth-link {
     text-align: center;
     margin-top: 10px;
@@ -149,6 +127,21 @@ li {
     text-decoration: none;
 }
 
-input:focus {
-    outline: 2px solid #3b82f6;
+/* RESPONSIVO */
+@media (max-width: 600px) {
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .actions {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
 }

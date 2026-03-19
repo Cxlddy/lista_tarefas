@@ -3,9 +3,10 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
+
 <h2>Login</h2>
 
-<form method="POST">
+<form method="POST" class="form">
     <input name="username" placeholder="Usuário" required>
     <input name="senha" type="password" placeholder="Senha" required>
     <button type="submit">Entrar</button>
@@ -14,4 +15,5 @@
 <div class="auth-link">
     <p>Não tem conta? <a href="{{ url_for('main.registro') }}">Registrar</a></p>
 </div>
+
 {% endblock %}
