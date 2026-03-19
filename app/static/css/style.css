@@ -241,3 +241,21 @@ li:hover {
 .radio-group label:hover {
     background-color: #334155;
 }
+
+.alert {
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.alert.erro {
+    background-color: #ef4444;
+    color: white;
+}
+
+.alert.sucesso {
+    background-color: #22c55e;
+    color: white;
+}

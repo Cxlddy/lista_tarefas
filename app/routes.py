@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, session
+from flask import Blueprint, render_template, request, redirect, url_for, session, flash
 from .models import db, Task, User
 
 main = Blueprint("main", __name__)
@@ -40,7 +40,8 @@ def registro():
         user_existente = User.query.filter_by(username=username).first()
 
         if user_existente:
-            return "Usuário já existe"
+            flash('Este usuário já existe!', 'danger')
+            return redirect(url_for("main.registro"))
 
         novo_user = User(username=username, senha=senha)
         db.session.add(novo_user)
