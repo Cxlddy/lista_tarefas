@@ -26,6 +26,10 @@ def login():
         if user:
             session["user_id"] = user.id
             return redirect(url_for("main.home"))
+        else:
+            flash("Usuário ou senha incorretos!", 'error')
+            return redirect(url_for("main.login"))
+
 
     return render_template("login.html")
 
