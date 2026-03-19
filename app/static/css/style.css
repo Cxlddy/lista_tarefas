@@ -154,3 +154,60 @@ li {
         font-size: 20px;
     }
 }
+
+/* ===== DESKTOP ===== */
+@media (min-width: 768px) {
+
+    .container {
+        max-width: 900px;
+    }
+
+    /* Header */
+    .header {
+        margin-bottom: 30px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    /* Form em linha */
+    .form {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .form input {
+        flex: 1;
+    }
+
+    .form button {
+        width: 150px;
+    }
+
+    /* Lista estilo card horizontal */
+    li {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .task-info {
+        max-width: 60%;
+    }
+
+    /* Botões menores no desktop */
+    .actions {
+        width: auto;
+    }
+
+    .btn {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+li:hover {
+    transform: scale(1.01);
+    transition: 0.2s;
+}
