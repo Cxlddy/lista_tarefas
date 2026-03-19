@@ -46,7 +46,9 @@ def registro():
         db.session.add(novo_user)
         db.session.commit()
 
-        return redirect(url_for("main.login"))
+        session["user_id"] = novo_user.id
+
+        return redirect(url_for("main.home"))
 
     return render_template("registro.html")
 
