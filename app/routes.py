@@ -12,10 +12,11 @@ main = Blueprint("main", __name__)
 
 @main.route("/")
 def home():
-    tarefas = listar_tarefas()
-    return render_template("index.html", tarefas=tarefas)
     if "user_id" not in session:
         return redirect(url_for("main.login"))
+
+    tarefas = listar_tarefas(session["user_id"])
+    return render_template("index.html", tarefas=tarefas)
 
 @main.route("/criar", methods=["POST"])
 def criar():
