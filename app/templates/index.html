@@ -12,7 +12,22 @@
 <form method="POST" action="/criar" class="form">
     <input name="titulo" placeholder="Título" required>
     <input name="descricao" placeholder="Descrição">
-    <input name="prioridade" type="number" placeholder="Prioridade" required>
+        <div class="radio-group">
+        <label>
+            <input type="radio" name="prioridade" value="1" required>
+            - Alta
+        </label>
+
+        <label>
+            <input type="radio" name="prioridade" value="2">
+            - Média
+        </label>
+
+        <label>
+            <input type="radio" name="prioridade" value="3">
+            - Baixa
+        </label>
+    </div>
     <button type="submit">Adicionar</button>
 </form>
 
