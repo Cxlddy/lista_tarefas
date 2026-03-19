@@ -1,20 +1,40 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: #0f172a;
     color: white;
-    padding: 10px;
+    font-size: 16px;
 }
 
 /* Container */
 .container {
-    max-width: 600px;
+    max-width: 500px;
     margin: auto;
+    padding: 15px;
 }
 
-/* Títulos */
-h1, h2 {
+/* Header estilo app */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 22px;
+    margin: 0;
+}
+
+h2 {
     text-align: center;
+}
+
+/* Logout */
+.logout {
+    color: #f87171;
+    text-decoration: none;
+    font-size: 14px;
 }
 
 /* Form */
@@ -22,15 +42,16 @@ h1, h2 {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 input {
-    padding: 12px;
-    border-radius: 6px;
+    padding: 14px;
+    border-radius: 10px;
     border: none;
     background-color: #1e293b;
     color: white;
+    font-size: 16px;
 }
 
 input:focus {
@@ -38,11 +59,12 @@ input:focus {
 }
 
 button {
-    padding: 12px;
-    border-radius: 6px;
+    padding: 14px;
+    border-radius: 10px;
     border: none;
     background-color: #3b82f6;
     color: white;
+    font-size: 16px;
     cursor: pointer;
 }
 
@@ -58,19 +80,21 @@ ul {
 
 li {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 10px;
     background-color: #1e293b;
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
+    padding: 14px;
+    border-radius: 12px;
+    margin-bottom: 12px;
 }
 
-/* Info da tarefa */
-.task-info {
-    display: flex;
-    flex-direction: column;
+/* Texto */
+.task-info strong {
+    font-size: 16px;
+}
+
+.task-info small {
+    color: #94a3b8;
 }
 
 /* Botões */
@@ -80,14 +104,16 @@ li {
 }
 
 .btn {
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 6px;
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
     font-weight: bold;
-    font-size: 14px;
+    text-decoration: none;
+    font-size: 15px;
 }
 
-/* Botões específicos */
+/* Cores */
 .concluir {
     background-color: #22c55e;
     color: white;
@@ -98,7 +124,7 @@ li {
     color: white;
 }
 
-/* Tarefa concluída */
+/* Concluído */
 .done {
     opacity: 0.6;
 }
@@ -107,16 +133,7 @@ li {
     text-decoration: line-through;
 }
 
-/* Logout */
-.logout {
-    display: block;
-    text-align: right;
-    margin-bottom: 10px;
-    color: #f87171;
-    text-decoration: none;
-}
-
-/* Links auth */
+/* Auth links */
 .auth-link {
     text-align: center;
     margin-top: 10px;
@@ -127,21 +144,13 @@ li {
     text-decoration: none;
 }
 
-/* RESPONSIVO */
-@media (max-width: 600px) {
-
-    li {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .actions {
-        width: 100%;
-        justify-content: space-between;
-        margin-top: 10px;
+/* Mobile refinado */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
     }
 
     h1 {
-        font-size: 22px;
+        font-size: 20px;
     }
 }
